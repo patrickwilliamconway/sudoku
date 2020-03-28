@@ -5,6 +5,7 @@ import java.util.PriorityQueue;
 public class Board {
 	
 	public Tile[][] tiles;
+	// this belongs in the Game class. The Board should have no knowledge of game contraints
 	public PriorityQueue<Tile> mostConstrained;
 	
 	public static final int BLANK_SPACE = 0;

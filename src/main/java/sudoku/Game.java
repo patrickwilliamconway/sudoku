@@ -97,5 +97,12 @@ public class Game {
 		}
 	}
 
+	// x0 = (x/3)*3
+	// y0 = (y/3)*3
+	// i range(0,3)
+	// 	j range(0,3)
+	// 		val[x0+i][y0+j]
+
+
 
 }
