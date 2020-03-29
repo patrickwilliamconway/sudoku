@@ -1,7 +1,26 @@
-# Ignore Gradle project-specific cache directory
-.gradle
+# taken from https://alvinalexander.com/source-code/scala/sample-gitignore-file-scala-sbt-intellij-eclipse/
+# sbt
+# (may want to keep parts of 'project')
+bin/
+project/
+target/
+build/
 
-# Ignore Gradle build output directory
-build
-
+# intellij idea
+*.log
+*.iml
+*.ipr
+*.iws
 .idea
+
+# mac
+.DS_Store
+
+# other?
+.history
+.scala_dependencies
+.cache
+.cache-main
+
+#general
+*.class
