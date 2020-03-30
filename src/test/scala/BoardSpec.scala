@@ -26,6 +26,26 @@ class BoardSpec extends FlatSpec {
     assert(testBoard.getBox(8) == Seq(2,8,0,0,0,5,0,7,9))
   }
 
+  "getRowSetValues" must "return the right values" in new TestScope {
+    assert(testBoard.getRowSetValues(0) == testBoard.getBoard(0).filter(_ != 0))
+  }
+
+  "getColSetValues" must "return the right values" in new TestScope {
+    assert(testBoard.getColSetValues(0) == Seq(5,6,0,8,4,7,0,0,0).filter(_ != 0))
+  }
+
+  "getBoxSetValues" must "return the right values" in new TestScope {
+    assert(testBoard.getBoxSetValues(0) == Seq(5,3,0,6,0,0,0,9,8).filter(_ != 0))
+    assert(testBoard.getBoxSetValues(1) == Seq(8,0,0,4,0,0,7,0,0).filter(_ != 0))
+    assert(testBoard.getBoxSetValues(2) == Seq(0,6,0,0,0,0,0,0,0).filter(_ != 0))
+    assert(testBoard.getBoxSetValues(3) == Seq(0,7,0,1,9,5,0,0,0).filter(_ != 0))
+    assert(testBoard.getBoxSetValues(4) == Seq(0,6,0,8,0,3,0,2,0).filter(_ != 0))
+    assert(testBoard.getBoxSetValues(5) == Seq(0,0,0,4,1,9,0,8,0).filter(_ != 0))
+    assert(testBoard.getBoxSetValues(6) == Seq(0,0,0,0,0,0,0,6,0).filter(_ != 0))
+    assert(testBoard.getBoxSetValues(7) == Seq(0,0,3,0,0,1,0,0,6).filter(_ != 0))
+    assert(testBoard.getBoxSetValues(8) == Seq(2,8,0,0,0,5,0,7,9).filter(_ != 0))
+  }
+
 }
 
 class TestScope {

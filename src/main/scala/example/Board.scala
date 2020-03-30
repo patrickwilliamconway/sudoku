@@ -7,7 +7,7 @@ class Board(board: Seq[Seq[Int]]) {
 
   val boardDim = getBoard.size // this is not based zero
   val boardDimSqrt = sqrt(boardDim).toInt // this is not based zero
-  val range = 0 to boardDim
+  val range = 0 until boardDim
 
   def getBoard: Seq[Seq[Int]] = board
 
@@ -24,8 +24,8 @@ class Board(board: Seq[Seq[Int]]) {
     val startX = (boxNum % boardDimSqrt) * boardDimSqrt
     val startY = (boxNum / boardDimSqrt) * boardDimSqrt
     val l: ListBuffer[Int] = ListBuffer()
-    for(i <- 0 to boardDimSqrt-1) {
-      for(j <- 0 to boardDimSqrt-1) {
+    for(i <- 0 until boardDimSqrt) {
+      for(j <- 0 until boardDimSqrt) {
         val x = startX + i
         val y = startY + j
         val v = getLocationValue(x, y)
@@ -39,16 +39,16 @@ class Board(board: Seq[Seq[Int]]) {
     getBoard(x)(y)
   }
 
-  def getRowSetValues(rowNum: Int): Seq[Int] = {
-    getRow(rowNum).filter(_ != 0)
+  def getRowSetValues(rowNum: Int): Set[Int] = {
+    getRow(rowNum).filter(_ != 0).toSet
   }
 
-  def getColSetValues(colNum: Int): Seq[Int] = {
-    getCol(colNum).filter(_ != 0)
+  def getColSetValues(colNum: Int): Set[Int] = {
+    getCol(colNum).filter(_ != 0).toSet
   }
 
-//  def getBoxSetValues(boxNum: Int): Seq[Int] = {
-//
-//  }
+  def getBoxSetValues(boxNum: Int): Set[Int] = {
+    getBox(boxNum).filter(_ != 0).toSet
+  }
 
 }
